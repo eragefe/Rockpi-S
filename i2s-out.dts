@@ -28,10 +28,10 @@
 			acodec-sound {
 				compatible = "rockchip,multicodecs-card";
 				rockchip,card-name = "My_card";
-                                rockchip,codec-hp-det;
+				rockchip,codec-hp-det;
 				rockchip,mclk-fs = <256>;
-                                rockchip,cpu = <&i2s_8ch_0>;
-                                rockchip,codec = <&acodec>;
+				rockchip,cpu = <&i2s_8ch_0>;
+				rockchip,codec = <&acodec>;
 			};
 		};
 	};

@@ -1,0 +1,10 @@
+#!/bin/bash
+while :
+do
+   if  mpc | grep playing >/dev/nul
+   then
+        echo none > /sys/class/leds/rockpis:green:power/trigger
+   else
+        echo default-on > /sys/class/leds/rockpis:green:power/trigger
+   fi
+done

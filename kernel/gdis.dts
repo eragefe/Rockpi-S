@@ -25,7 +25,7 @@
         fragment@2 {
                 target-path = "/";
                 __overlay__ {
-                   i2s0-sound {
+                    sound {
                         compatible = "rockchip,multicodecs-card";
                         rockchip,card-name = "GDis_DAC";
                         rockchip,mclk-fs = <256>;

@@ -1,4 +1,6 @@
 #!/bin/bash
+
+echo none > /sys/class/leds/rockpis:blue:user/trigger
 while :
 do
    if  mpc | grep playing >/dev/nul

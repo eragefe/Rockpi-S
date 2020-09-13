@@ -27,7 +27,7 @@
 		__overlay__ {
 			acodec-sound {
 				compatible = "rockchip,multicodecs-card";
-				rockchip,card-name = "My_card";
+				rockchip,card-name = "i2sout";
 				rockchip,codec-hp-det;
 				rockchip,mclk-fs = <256>;
 				rockchip,cpu = <&i2s_8ch_0>;

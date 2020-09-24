@@ -5,7 +5,7 @@
 	compatible = "radxa,rockpis", "rockchip,rk3308";
 
         fragment@0 {
-                target-path = "/";
+		target-path = "/";
                 __overlay__ {
 			acodec: acodec {
 			#sound-dai-cells = <0>;

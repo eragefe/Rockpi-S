@@ -8,17 +8,17 @@
 		target-path = "/";
 		__overlay__ {
 			acodec: acodec {
-			#sound-dai-cells = <0>;
-			compatible = "rockchip,rk3308-codec";
-			status = "okay";
+				#sound-dai-cells = <0>;
+				compatible = "rockchip,rk3308-codec";
+				status = "okay";
+				};
 			};
-                };
         };
 
 	fragment@1 {
 		target = <&spdif_tx>;
 		__overlay__ {
-			status = "okay";
+				status = "okay";
 			};
 	};
 

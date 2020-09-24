@@ -5,12 +5,12 @@
 	compatible = "radxa,rockpis", "rockchip,rk3308";
 
         fragment@0 {
-                target-path = "/";
-                __overlay__ {
+		target-path = "/";
+		__overlay__ {
 			acodec: acodec {
 			#sound-dai-cells = <0>;
 			compatible = "rockchip,rk3308-codec";
-                        status = "okay";
+			status = "okay";
 			};
                 };
         };
@@ -19,7 +19,7 @@
 		target = <&spdif_tx>;
 		__overlay__ {
 			status = "okay";
-		};
+			};
 	};
 
 	fragment@2 {
@@ -32,7 +32,7 @@
 				rockchip,mclk-fs = <256>;
 				rockchip,cpu = <&spdif_tx>;
 				rockchip,codec = <&acodec>;
-			};
-		};
-	};
+				};
+		    };
+	  };
 };

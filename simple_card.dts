@@ -21,7 +21,7 @@
                                 compatible = "linux,spdif-dit";
                                 status = "okay";
                         };
-
+                        
                         sound_i2s {
                                 simple-audio-card,name = "DAC";
                                 compatible = "simple-audio-card";
@@ -30,15 +30,15 @@
                                 simple-audio-card,frame-master = <&cpu_dai>;
                                 simple-audio-card,mclk-fs = <256>;
                                 status = "okay";
-
+                                
                                 cpu_dai: simple-audio-card,cpu {
-                                        sound-dai = <&i2s_8ch_0>;
+                                sound-dai = <&i2s_8ch_0>;
                                 };
-
+                                
                                 codec_dai: simple-audio-card,codec {
-                                        sound-dai = <&i2s0_out>;
+                                sound-dai = <&i2s0_out>;
                                 };
-                        };
+                         };
                 };
         };
 };

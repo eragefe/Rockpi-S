@@ -6,7 +6,8 @@
 	
 	fragment@0 {
 		target-path = "/";
-		__overlay__ {
+		
+		__overlay__ {		
 			acodec: acodec {
 			#sound-dai-cells = <0>;
 			compatible = "rockchip,rk3308-codec";
@@ -17,13 +18,15 @@
 
 	fragment@1 {
 		target = <&i2s_8ch_0>;
-		__overlay__ }
+		
+		__overlay__ }		
 			status = "okay";
 		};
 	};
 
 	fragment@2 {
 		target-path = "/";
+		
 		__overlay__ {
 			acodec-sound {
 			compatible = "rockchip,multicodecs-card";

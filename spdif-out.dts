@@ -3,8 +3,9 @@
 
 / {
 	compatible = "radxa,rockpis", "rockchip,rk3308";
-
-        fragment@0 {
+	
+	
+	fragment@0 {
 		target-path = "/";
 		
 		__overlay__ {

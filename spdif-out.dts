@@ -4,7 +4,6 @@
 / {
 	compatible = "radxa,rockpis", "rockchip,rk3308";
 	
-	
 	fragment@0 {
 		target-path = "/";
 		

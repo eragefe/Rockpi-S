@@ -6,6 +6,7 @@
 
         fragment@0 {
 		target-path = "/";
+		
 		__overlay__ {
 			acodec: acodec {
 				#sound-dai-cells = <0>;
@@ -17,6 +18,7 @@
 
 	fragment@1 {
 		target = <&spdif_tx>;
+		
 		__overlay__ {
 				status = "okay";
 			};
@@ -24,6 +26,7 @@
 
 	fragment@2 {
 		target-path = "/";
+		
 		__overlay__ {
 			acodec-sound {
 				compatible = "rockchip,multicodecs-card";

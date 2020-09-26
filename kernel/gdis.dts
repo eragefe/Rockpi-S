@@ -6,6 +6,7 @@
 
         fragment@0 {
                 target-path = "/";
+                
                 __overlay__ {
                         i2s0: i2s0 {
                         #sound-dai-cells = <0>;
@@ -17,6 +18,7 @@
 
         fragment@1 {
                 target = <&i2s_8ch_0>;
+                
                 __overlay__ {
                         status = "okay";
                 };
@@ -24,6 +26,7 @@
 
         fragment@2 {
                 target-path = "/";
+                
                 __overlay__ {
                     sound {
                         compatible = "rockchip,multicodecs-card";

@@ -23,8 +23,16 @@
                         status = "okay";
                 };
         };
-
+        
         fragment@2 {
+                target = <&i2s_8ch_2>;
+                
+                __overlay__ {
+                        status = "disabled";
+                };
+        };
+
+        fragment@3 {
                 target-path = "/";
                 
                 __overlay__ {

@@ -27,14 +27,14 @@
                 target-path = "/";
                 
                 __overlay__ {
-                        codec: 8ch-out {
+                        codec: multi-ch-out {
                                 #sound-dai-cells = <0>;
                                 compatible = "rockchip,dummy-codec";
                                 status = "okay";
                                 };
                         
                         sound_i2s {
-                                simple-audio-card,name = "8ch-card";
+                                simple-audio-card,name = "multi-ch-card";
                                 compatible = "simple-audio-card";
                                 simple-audio-card,format = "dsp_b";
                                 simple-audio-card,bitclock-master = <&cpu_dai>;

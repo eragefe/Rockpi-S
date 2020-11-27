@@ -10,6 +10,7 @@
                 
                 __overlay__ {
                         #sound-dai-cells = <0>;
+                        rockchip,clk-trm = <1>;
                         status = "okay";
                         };
                };

@@ -39,7 +39,7 @@
                                 simple-audio-card,format = "dsp_b";
                                 simple-audio-card,bitclock-master = <&cpu_dai>;
                                 simple-audio-card,frame-master = <&cpu_dai>;
-                                simple-audio-card,mclk-fs = <256>;
+                                simple-audio-card,mclk-fs = <128>;
                                 status = "okay";
                                 
                                 cpu_dai: simple-audio-card,cpu {

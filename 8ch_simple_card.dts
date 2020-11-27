@@ -1,0 +1,55 @@
+// Definitions for DAC
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "radxa,rockpis", "rockchip,rk3308";
+
+        fragment@0 {
+                target = <&i2s_8ch_0>;
+                
+                __overlay__ {
+                        #sound-dai-cells = <0>;
+                        status = "okay";
+                        };
+               };
+               
+        fragment@1 {
+                target = <&i2s_8ch_2>;
+                
+                __overlay__ {
+                        #sound-dai-cells = <0>;
+                        status = "disabled";
+                        };
+               };
+
+        fragment@2 {
+                target-path = "/";
+                
+                __overlay__ {
+                        i2s0_out: i2s0-out {
+                                #sound-dai-cells = <0>;
+                                compatible = "ti,pcm5102a";
+                                status = "okay";
+                                };
+                        
+                        sound_i2s {
+                                simple-audio-card,name = "DAC";
+                                compatible = "simple-audio-card";
+                                simple-audio-card,format = "i2s";
+                                simple-audio-card,bitclock-master = <&cpu_dai>;
+                                simple-audio-card,frame-master = <&cpu_dai>;
+                                simple-audio-card,mclk-fs = <256>;
+                                status = "okay";
+                                
+                                cpu_dai: simple-audio-card,cpu {
+                                sound-dai = <&i2s_8ch_0>;
+                                };
+                                
+                                codec_dai: simple-audio-card,codec {
+                                sound-dai = <&i2s0_out>;
+                                };
+                         };
+                };
+        };
+};

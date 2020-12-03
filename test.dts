@@ -13,8 +13,17 @@
                         status = "okay";
                         };
                };
-
+               
         fragment@1 {
+                target = <&i2s_8ch_2>;
+
+                __overlay__ {
+                        #sound-dai-cells = <0>;
+                        status = "disabled";
+                        };
+               };
+
+        fragment@2 {
                 target-path = "/";
 
                 __overlay__ {
@@ -23,7 +32,7 @@
                                 status = "okay";
                                 };
                         sound {
-                                simple-audio-card,name = "SimpleDAC";
+                                simple-audio-card,name = "Multi-ch-DAC";
                                 status = "okay";
                                 
                                 cpu {

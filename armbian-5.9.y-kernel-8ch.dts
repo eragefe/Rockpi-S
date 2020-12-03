@@ -13,39 +13,34 @@
                         status = "okay";
                         };
                };
-
+               
         fragment@1 {
+                target = <&i2s_8ch_2>;
+
+                __overlay__ {
+                        #sound-dai-cells = <0>;
+                        status = "disabled";
+                        };
+               };
+
+        fragment@2 {
                 target-path = "/";
 
                 __overlay__ {
-                        i2s0_out: i2s0-out {
+                        pcm5102a {
                                 #sound-dai-cells = <0>;
-                                compatible = "ti,pcm5102a";
                                 status = "okay";
                                 };
-                        sound     {
-                                status = "disabled";
-                                };
-
-                        sound_i2s {
-                                simple-audio-card,name = "SimpleDAC";
-                                compatible = "simple-audio-card";
+                        sound {
+                                simple-audio-card,name = "Multi-ch-DAC";
                                 simple-audio-card,format = "dsp_b";
-                                simple-audio-card,bitclock-master = <&cpu_dai>;
-                                simple-audio-card,frame-master = <&cpu_dai>;
-                                simple-audio-card,mclk-fs = <256>;
                                 status = "okay";
-
-                                cpu_dai: simple-audio-card,cpu {
+                                
+                                cpu {
                                 dai-tdm-slot-num = <8>;
                                 dai-tdm-slot-width = <16>;
-                                sound-dai = <&i2s_8ch_0>;
                                 };
-
-                                codec_dai: simple-audio-card,codec {
-                                sound-dai = <&i2s0_out>;
-                                };
-                         };
-                };
-        };
-};
+                            };
+                    };
+           };
+ };

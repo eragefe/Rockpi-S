@@ -33,6 +33,7 @@
                                 };
                         sound {
                                 simple-audio-card,name = "Multi-ch-DAC";
+                                simple-audio-card,format = "dsp_b";
                                 status = "okay";
                                 
                                 cpu {

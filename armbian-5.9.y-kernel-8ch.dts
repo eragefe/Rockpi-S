@@ -37,6 +37,8 @@
                                 status = "okay";
 
                                 cpu_dai: simple-audio-card,cpu {
+                                dai-tdm-slot-num = <8>;
+                                dai-tdm-slot-width = <16>;
                                 sound-dai = <&i2s_8ch_0>;
                                 };
 

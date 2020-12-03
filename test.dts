@@ -25,6 +25,12 @@
                         sound {
                                 simple-audio-card,name = "SimpleDAC";
                                 status = "okay";
+                                
+                                cpu {
+                                dai-tdm-slot-num = <8>;
+                                dai-tdm-slot-width = <16>;
                                 };
-                         };
-               };
+                            };
+                    };
+           };
+ };

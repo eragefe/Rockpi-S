@@ -14,7 +14,7 @@
         fragment@1 {
                 target = <&i2s_8ch_0>;
                 __overlay__ {
-                        status = "";
+                        status = "disabled";
                 };
         };
         

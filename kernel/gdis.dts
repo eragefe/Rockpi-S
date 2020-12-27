@@ -13,7 +13,6 @@
         
         fragment@1 {
                 target = <&i2s_8ch_0>;
-                
                 __overlay__ {
                         status = "";
                 };
@@ -21,7 +20,6 @@
         
         fragment@2 {
                 target = <&i2s_8ch_2>;
-                
                 __overlay__ {
                         status = "disabled";
                 };
@@ -36,8 +34,7 @@
         
         fragment@4 {
                 target-path = "/";
-                
-                __overlay__ {
+                 __overlay__ {
                         i2s0: i2s0 {
                         #sound-dai-cells = <0>;
                         compatible = "rockchip,dummy-codec";
@@ -48,8 +45,7 @@
         
         fragment@5 {
                 target-path = "/";
-                    
-                __overlay__ {
+                 __overlay__ {
                     sound {
                         compatible = "rockchip,multicodecs-card";
                         rockchip,card-name = "GDis_DAC";
@@ -62,7 +58,6 @@
                 
         fragment@6 {
                 target-path = "/";
-                
                 __overlay__ {
                     ir_recv: ir-receiver {
                         status = "okay";

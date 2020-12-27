@@ -4,18 +4,6 @@
 / {
         compatible = "radxa,rockpis", "rockchip,rk3308";
 
-        fragment@0 {
-                target-path = "/";
-                
-                __overlay__ {
-                        i2s0: i2s0 {
-                        #sound-dai-cells = <0>;
-                        compatible = "rockchip,dummy-codec";
-                        status = "okay";
-                        };
-                };
-        };
-        
         fragment@1 {
                 target = <&spdif_tx>;
                 __overlay__ {
@@ -37,7 +25,27 @@
                 __overlay__ {
                         status = "disabled";
                 };
-        };  
+        };
+        
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+        
+        fragment@0 {
+                target-path = "/";
+                
+                __overlay__ {
+                        i2s0: i2s0 {
+                        #sound-dai-cells = <0>;
+                        compatible = "rockchip,dummy-codec";
+                        status = "okay";
+                        };
+                };
+        };
+        
         fragment@4
                 target-path = "/";
                     
@@ -50,5 +58,16 @@
                         rockchip,codec = <&i2s0>;
                         };
                 };
-        };
+                
+        fragment@5 {
+                target-path = "/";
+                
+                __overlay__ {
+                    ir_recv: ir-receiver {
+                        status = "okay";
+                        compatible = "gpio-ir-receiver";
+                        gpios = <&gpio2 4 0>;  /* GPIO2_A4 0=GPIO_ACTIVE_HIGH */
+                  };
+            };
+      };
 };

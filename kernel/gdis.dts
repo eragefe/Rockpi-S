@@ -11,7 +11,7 @@
                 };
         };
         
-        fragment@1{
+        fragment@1 {
                 target = <&i2s_8ch_0>;
                 
                 __overlay__ {
@@ -19,7 +19,7 @@
                 };
         };
         
-        fragment@2{
+        fragment@2 {
                 target = <&i2s_8ch_2>;
                 
                 __overlay__ {
@@ -46,7 +46,7 @@
                 };
         };
         
-        fragment@5
+        fragment@5 {
                 target-path = "/";
                     
                 __overlay__ {
@@ -58,6 +58,7 @@
                         rockchip,codec = <&i2s0>;
                         };
                 };
+        };
                 
         fragment@6 {
                 target-path = "/";

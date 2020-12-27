@@ -31,6 +31,20 @@
 			status = "okay";
 		};
 	};
+	
+        fragment@4 {
+                target = <&uart1>;
+                __overlay__ {
+                        status = "disabled";
+                };
+        };
+	
+        fragment@5 {
+                target = <&uart2>;
+                __overlay__ {
+                        status = "disabled";
+                };
+        };
         
         fragment@6 {
                 target-path = "/";
@@ -62,7 +76,6 @@
                     ir_recv: ir-receiver {
                         status = "okay";
                         compatible = "gpio-ir-receiver";
-                        gpios = <&gpio2 4 0>;  /* GPIO2_A4 0=GPIO_ACTIVE_HIGH */
                   };
             };
       };

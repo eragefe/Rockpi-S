@@ -8,7 +8,7 @@
         target-path = "/";
         __overlay__ {
               sound_i2s {
-                    compatible = "simple-audio-card";
+                     compatible = "simple-audio-card";
                      simple-audio-card,name = "GDis";
                      simple-audio-card,format = "i2s";
                      simple-audio-card,mclk-fs = <256>;

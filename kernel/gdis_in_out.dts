@@ -7,34 +7,28 @@
     fragment@0 {
         target-path = "/";
         __overlay__ {
-           sound_i2s {
-            compatible = "simple-audio-card";
-            simple-audio-card,name = "GDis";
-            simple-audio-card,format = "i2s";
-            status="okay";
-            simple-audio-card,mclk-fs = <256>;
+              sound_i2s {
+                    compatible = "simple-audio-card";
+                     simple-audio-card,name = "GDis";
+                     simple-audio-card,format = "i2s";
+                     simple-audio-card,mclk-fs = <256>;
+                     status="okay";
 
-            capture_link: simple-audio-card,dai-link@0 {
-                format = "i2s";
-
-                r_cpu_dai: cpu {
-                    sound-dai = <&i2s_8ch_0>;
+                     capture_link: simple-audio-card,dai-link@0 {
+                     r_cpu_dai: cpu {
+                     sound-dai = <&i2s_8ch_0>;
+                };
+                     r_codec_dai: codec {
+                     sound-dai = <&codec_in>;
+                   };
                 };
 
-                r_codec_dai: codec {
-                    sound-dai = <&codec_in>;
-                };
-            };
-
-            playback_link: simple-audio-card,dai-link@1 {
-                format = "i2s";
-
-                p_cpu_dai: cpu {
-                    sound-dai = <&i2s_8ch_0>;
-                };
-
-                p_codec_dai: codec {
-                    sound-dai = <&codec_out>;
+                     playback_link: simple-audio-card,dai-link@1 {
+                     p_cpu_dai: cpu {
+                     sound-dai = <&i2s_8ch_0>;
+                   };
+                     p_codec_dai: codec {
+                     sound-dai = <&codec_out>;
                    };
                 };
             };

@@ -38,19 +38,19 @@
     fragment@1 {
         target-path = "/";
         __overlay__ {
-            codec_out: spdif-transmitter {
-                #address-cells = <0>;
-                #size-cells = <0>;
-                #sound-dai-cells = <0>;
-                compatible = "linux,spdif-dit";
-                status = "okay";
-            };
-            codec_in: spdif-receiver {
-                #address-cells = <0>;
-                #size-cells = <0>;
-                #sound-dai-cells = <0>;
-                compatible = "linux,spdif-dir";
-                status = "okay";
+              codec_out: spdif-transmitter {
+                     #address-cells = <0>;
+                     #size-cells = <0>;
+                     #sound-dai-cells = <0>;
+                     compatible = "linux,spdif-dit";
+                     status = "okay";
+                  };
+              codec_in: spdif-receiver {
+                    #address-cells = <0>;
+                    #size-cells = <0>;
+                    #sound-dai-cells = <0>;
+                    compatible = "linux,spdif-dir";
+                    status = "okay";
             };
         };
     };
@@ -58,11 +58,11 @@
     fragment@2 {
         target = <&i2s_8ch_0>;
         __overlay__ {
-            #sound-dai-cells = <0>;
-            status = "okay";
+                    #sound-dai-cells = <0>;
+                    status = "okay";
+            };
         };
     };
-};
 
 /* 
 Compile with:

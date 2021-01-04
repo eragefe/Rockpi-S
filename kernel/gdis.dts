@@ -7,14 +7,14 @@
         fragment@0 {
                 target = <&spdif_tx>;
                 __overlay__ {
-                        status = "okay";
+                        status = "disabled";
                 };
         };
         
         fragment@1 {
                 target = <&i2s_8ch_0>;
                 __overlay__ {
-                        status = "disabled";
+                        status = "okay";
                 };
         };
         
@@ -64,7 +64,7 @@
                         compatible = "rockchip,multicodecs-card";
                         rockchip,card-name = "GDis_DAC";
                         rockchip,mclk-fs = <256>;
-                        rockchip,cpu = <&spdif_tx>;
+                        rockchip,cpu = <&i2s_8ch_0>;
                         rockchip,codec = <&i2s0>;
                         };
                 };

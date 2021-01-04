@@ -76,7 +76,7 @@
                     ir_recv: ir-receiver {
                         status = "okay";
                         compatible = "gpio-ir-receiver";
-			gpios = <&gpio1 23 0>;
+			gpios = <&gpio1 25 0>;
                   };
             };
       };

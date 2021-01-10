@@ -39,9 +39,9 @@
                         #sound-dai-cells = <0>;
                         compatible = "rockchip,dummy-codec";
                         status = "okay";
-                        };
-                };
-        };
+			};
+		};
+	};
         
         fragment@5 {
                 target-path = "/";
@@ -52,9 +52,9 @@
                         rockchip,mclk-fs = <256>;
                         rockchip,cpu = <&i2s_8ch_0>;
                         rockchip,codec = <&i2s0>;
-                        };
-                };
-        };
+			};
+		};
+	};
                 
         fragment@6 {
                 target-path = "/";
@@ -63,7 +63,7 @@
                         status = "okay";
                         compatible = "gpio-ir-receiver";
 			gpios = <&gpio1 25 0>;
-                  };
-            };
-      };
+			};
+		};
+	};
 };

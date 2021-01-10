@@ -2,26 +2,26 @@
 /plugin/;
 
 / {
-        compatible = "radxa,rockpis", "rockchip,rk3308";
+	compatible = "radxa,rockpis", "rockchip,rk3308";
 
-        fragment@0 {
-                target = <&spdif_tx>;
-                __overlay__ {
-                        status = "disabled";
+	fragment@0 {
+		target = <&spdif_tx>;
+		__overlay__ {
+			status = "disabled";
 		};
 	};
         
-        fragment@1 {
-                target = <&i2s_8ch_0>;
-                __overlay__ {
-                        status = "okay";
+	fragment@1 {
+		target = <&i2s_8ch_0>;
+		__overlay__ {
+			status = "okay";
 		};
 	};
         
-        fragment@2 {
-                target = <&i2s_8ch_2>;
-                __overlay__ {
-                        status = "disabled";
+	fragment@2 {
+		target = <&i2s_8ch_2>;
+		__overlay__ {
+			status = "disabled";
 		};
 	};
         
@@ -32,37 +32,36 @@
 		};
 	};
         
-        fragment@4 {
-                target-path = "/";
-                 __overlay__ {
-                        i2s0: i2s0 {
-                        #sound-dai-cells = <0>;
-                        compatible = "rockchip,dummy-codec";
-                        status = "okay";
+	fragment@4 {
+		target-path = "/";
+		__overlay__ {
+			i2s0: i2s0 {
+			#sound-dai-cells = <0>;
+			compatible = "rockchip,dummy-codec";
+			status = "okay";
 			};
 		};
 	};
         
-        fragment@5 {
-                target-path = "/";
-                 __overlay__ {
-                    sound {
-                        compatible = "rockchip,multicodecs-card";
-                        rockchip,card-name = "GDis_DAC";
-                        rockchip,mclk-fs = <256>;
-                        rockchip,cpu = <&i2s_8ch_0>;
-                        rockchip,codec = <&i2s0>;
+	fragment@5 {
+		target-path = "/";
+		_overlay__ {
+			sound {
+				compatible = "rockchip,multicodecs-card";
+				rockchip,card-name = "GDis_DAC";
+				rockchip,mclk-fs = <256>;
+				rockchip,cpu = <&i2s_8ch_0>;
+				rockchip,codec = <&i2s0>;
 			};
 		};
 	};
-                
-        fragment@6 {
-                target-path = "/";
-                __overlay__ {
-                    ir_recv: ir-receiver {
-                        status = "okay";
-                        compatible = "gpio-ir-receiver";
-			gpios = <&gpio1 25 0>;
+	fragment@6 {
+		target-path = "/";
+		__overlay__ {
+			ir_recv: ir-receiver {
+				status = "okay";
+				compatible = "gpio-ir-receiver";
+				gpios = <&gpio1 25 0>;
 			};
 		};
 	};

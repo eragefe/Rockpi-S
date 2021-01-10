@@ -1,0 +1,50 @@
+#
+# Initial test configuration for systemwide irexec service.
+#
+# Note that the system-wide service is useful only in corner-cases.
+# Most scenarios are better off with a session service as described in the
+# Configuration Guide. However, note that both can also be combined.
+#
+# Also note that the system-wide service runs without a terminal. To
+# check the output generated use something like
+# 'journalctl -b0 /usr/bin/irexec'. This service just echoes some keys
+# commonly available.
+#
+
+begin
+    prog   = irexec
+    button = KEY_UP
+    config = amixer -M set Master 1+ > /dev/null 2>&1
+    repeat = 1
+end
+
+begin
+    prog   = irexec
+    button = KEY_DOWN
+    config = amixer -M set Master 1- > /dev/null 2>&1
+    repeat = 1
+end
+
+begin
+    prog   = irexec
+    button = KEY_PLAY
+    config = bash /root/spdif
+end
+
+begin
+    prog   = irexec
+    button = KEY_MENU
+    config = mpc stop
+end
+
+begin
+    prog   = irexec
+    button = KEY_RIGHT
+    config = mpc next
+end
+
+begin
+    prog   = irexec
+    button = KEY_LEFT
+    config = mpc prev
+end

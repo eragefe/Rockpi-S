@@ -27,7 +27,7 @@ end
 
 begin
     prog   = irexec
-    button = KEY_PLAY
+    button = KEY_OK
     config = bash /root/spdif
 end
 
@@ -35,6 +35,13 @@ begin
     prog   = irexec
     button = KEY_MENU
     config = mpc stop
+end
+
+begin
+    prog   = irexec
+    button = KEY_PLAY
+    config = mpc play
+    config = mpc pause
 end
 
 begin

@@ -7,4 +7,5 @@ then
         break
 else
         bash /root/wifi
-fi; done
+fi
+done

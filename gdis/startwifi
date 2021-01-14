@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while :
+do
+if [[ $(hostname -I) ]]
+then
+        break
+else
+        bash /root/wifi
+fi; done

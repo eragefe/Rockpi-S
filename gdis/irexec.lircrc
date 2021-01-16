@@ -27,31 +27,56 @@ end
 
 begin
     prog   = irexec
-    button = KEY_OK
-    config = bash /root/spdif
-end
-
-begin
-    prog   = irexec
-    button = KEY_MENU
-    config = mpc stop
-end
-
-begin
-    prog   = irexec
     button = KEY_PLAY
     config = mpc play
     config = mpc pause
 end
 
+begin order
+begin
+    prog                = irexec
+    button              = KEY_MENU
+    ignore_first_events = 20
+    config              = bash /root/reboot
+end
+end order
+
+begin
+    prog   = irexec
+    button = KEY_MENU
+    config = mpc stop
+    mode   = order
+    flags  = quit
+end
+
+begin order
+begin
+    prog                = irexec
+    button              = KEY_RIGHT
+    ignore_first_events = 10
+    config              = bash /root/net
+end
+end order
+
 begin
     prog   = irexec
     button = KEY_RIGHT
     config = mpc next
+    mode   = order
+    flags  = quit
 end
 
 begin
     prog   = irexec
     button = KEY_LEFT
     config = mpc prev
+end
+
+begin
+    prog   = irexec
+    button = KEY_OK
+    config = bash /root/streamer
+    config = bash /root/coaxial1
+    config = bash /root/optical1
+    config = bash /root/optical2
 end

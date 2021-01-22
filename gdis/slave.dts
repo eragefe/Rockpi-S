@@ -1,0 +1,79 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "radxa,rockpis\0rockchip,rk3308";
+
+        fragment@0 {
+                        target = <&acodec>;
+                        __overlay__ {
+                                status = "disabled";
+                        };
+                };
+
+        fragment@1 {
+                        target = <&codec>;
+                        __overlay__ {
+                                status = "disabled";
+                        };
+                };
+
+        fragment@2 {
+                        target = <&pcm5102a>;
+                        __overlay__ {
+                                status = "okay";
+                        };
+                };
+
+        fragment@3 {
+                        target = <&i2s_8ch_2>;
+                        __overlay__ {
+                                status = "disabled";
+                        };
+                };
+
+
+        fragment@4 {
+                        target = <&i2s_8ch_0>;
+                        __overlay__ {
+                                #sound-dai-cells = <0x0>;
+                                rockchip,bclk-fs = <0x100>;
+                                rockchip,clk-trcm = <0>;
+                                status = "okay";
+                        };
+                };
+
+        fragment@5 {
+                target-path = "/";
+                        __overlay__ {
+                        external_clk: external_clk {
+                                compatible = "fixed-clock";
+                                #clock-cells = < 0x00 >;
+                                clock-frequency = < 0xAC4400 >;
+                                clock-output-names = "external_clk";
+                                };
+                        };
+                };
+
+        fragment@6 {
+                target-path = "/sound";
+                        __overlay__ {
+                                compatible = "simple-audio-card";
+                                #address-cells = <1>;
+                                #size-cells = <0>;
+                                simple-audio-card,name = "mclk_in";
+                                simple-audio-card,mclk-fs = <0x100>;
+                                format = "i2s";
+                                        cpu {
+                                        sound-dai = <&i2s_8ch_0>;
+                                        bitclock-master = <&pcm5102a>;
+                                        frame-master = <&pcm5102a>;
+                                        };
+
+                                        codec {
+                                        sound-dai = <&pcm5102a>;
+                                        clocks = <&external_clk>;
+                                        };
+                                };
+                        };
+                };

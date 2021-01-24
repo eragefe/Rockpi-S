@@ -41,7 +41,7 @@ def save_credentials():
     wifi_key = request.form['wifi_key']
     create_wpa_supplicant(ssid, wifi_key)
     os.system('mv wifi.tmp /root/wifi')
-    os.system('sed -i "$ i bash /root/wifi" /etc/rc.local')
+    os.system('sed -i "$ i bash /root/startwifi" /etc/rc.local')
     os.system('bash /root/wifi')
     time.sleep(1)
     os.system('reboot')
@@ -70,25 +70,22 @@ def poweroff():
 
 @app.route('/streamer', methods = ['GET', 'POST'])
 def streamer():
-    os.system('echo "0" > /sys/class/gpio/gpio198/value')
-    os.system('echo "0" > /sys/class/gpio/gpio199/value')
+    os.system('bash /root/streamer')
     return render_template('app.html')
 
 @app.route('/optical1', methods = ['GET', 'POST'])
 def optical1():
-    os.system('echo "1" > /sys/class/gpio/gpio198/value')
-    os.system('echo "0" > /sys/class/gpio/gpio199/value')
+    os.system('bash /root/optical1')
     return render_template('app.html')
 
 @app.route('/optical2', methods = ['GET', 'POST'])
 def optical2():
-    os.system('echo "1" > /sys/class/gpio/gpio198/value')
-    os.system('echo "1" > /sys/class/gpio/gpio199/value')
+    os.system('bash /root/optical2')
     return render_template('app.html')
 
 @app.route('/coaxial1', methods = ['GET', 'POST'])
 def coaxial1():
-    os.system('')
+    os.system('bash /root/coaxial1')
     return render_template('app.html')
 
 @app.route('/coaxial2', methods = ['GET', 'POST'])

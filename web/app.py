@@ -43,8 +43,6 @@ def save_credentials():
     os.system('mv wifi.tmp /root/wifi')
     os.system('sed -i "$ i bash /root/startwifi" /etc/rc.local')
     os.system('bash /root/wifi')
-    time.sleep(1)
-    os.system('reboot')
 
 @app.route('/dispon', methods = ['GET', 'POST'])
 def dispon():

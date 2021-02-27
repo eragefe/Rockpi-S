@@ -14,7 +14,7 @@
 	fragment@1 {
 		target = <&i2s_8ch_0>;
 		__overlay__ {
-		        rockchip,bclk-fs = <64>;
+			rockchip,bclk-fs = <64>;
 			status = "okay";
 		};
 	};

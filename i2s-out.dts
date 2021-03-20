@@ -2,29 +2,36 @@
 /plugin/;
 
 / {
-	compatible = "radxa,rockpis", "rockchip,rk3308";
-	
-	fragment@0 {
-		target = <&acodec>;
-		__overlay__ {		
-			status = "okay";
+        compatible = "radxa,rockpis", "rockchip,rk3308";
+
+        fragment@0 {
+                target = <&i2s_8ch_2>;
+                __overlay__ {
+                        status = "disabled";
                 };
         };
 
-	fragment@1 {
-		target = <&i2s_8ch_0>;
-		__overlay__ {
-			rockchip,bclk-fs = <64>;
-			status = "okay";
-		};
-	};
+        fragment@1 {
+                target = <&acodec>;
+                __overlay__ {
+                        status = "okay";
+                };
+        };
 
-	fragment@2 {
-		target = <&acodec_sound>;
-		__overlay__ {
-			rockchip,card-name = "i2sout";
-			rockchip,cpu = <&i2s_8ch_0>;
-			rockchip,codec = <&acodec>;
-		};
-	};
+        fragment@2 {
+                target = <&i2s_8ch_0>;
+                __overlay__ {
+                        rockchip,bclk-fs = <256>;
+                        status = "okay";
+                };
+        };
+
+        fragment@3 {
+                target = <&acodec_sound>;
+                __overlay__ {
+                        rockchip,card-name = "i2sout";
+                        rockchip,cpu = <&i2s_8ch_0>;
+                        rockchip,codec = <&acodec>;
+                };
+        };
 };

@@ -31,7 +31,6 @@
 			acodec-sound {
 				compatible = "rockchip,multicodecs-card";
 				rockchip,card-name = "My_card";
-				rockchip,codec-hp-det;
 				rockchip,mclk-fs = <256>;
 				rockchip,cpu = <&spdif_tx>;
 				rockchip,codec = <&acodec>;

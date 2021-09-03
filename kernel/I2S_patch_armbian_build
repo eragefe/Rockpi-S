@@ -1,0 +1,23 @@
+
+diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
+
+--- a/sound/soc/rockchip/rockchip_i2s_tdm.c     2021-09-01 17:22:58.880764133 +0000
++++ b/sound/soc/rockchip/rockchip_i2s_tdm.c     2021-09-01 21:09:50.193851972 +0000
+@@ -120,7 +120,7 @@
+
+        regcache_cache_only(i2s_tdm->regmap, true);
+        if (!IS_ERR(i2s_tdm->mclk_tx))
+-               clk_disable_unprepare(i2s_tdm->mclk_tx);
++               clk_prepare_enable(i2s_tdm->mclk_tx);
+        if (!IS_ERR(i2s_tdm->mclk_rx))
+                clk_disable_unprepare(i2s_tdm->mclk_rx);
+
+@@ -394,6 +394,9 @@
+                                break;
+                        }
+                }
++                regmap_update_bits(i2s_tdm->regmap, I2S_XFER,
++                                   I2S_XFER_TXS_START,
++                                   I2S_XFER_TXS_START);
+        }
+ }

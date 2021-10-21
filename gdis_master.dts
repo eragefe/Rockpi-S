@@ -1,0 +1,50 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "radxa,rockpis", "rockchip,rk3308";
+
+        fragment@0 {
+                target-path = "/";
+
+                __overlay__ {
+                        i2s0: i2s0 {
+                        #sound-dai-cells = <0>;
+                        compatible = "rockchip,dummy-codec";
+                        status = "okay";
+                        };
+                };
+        };
+
+        fragment@1 {
+                target = <&i2s_8ch_0>;
+
+                __overlay__ {
+                        status = "okay";
+                };
+        };
+
+        fragment@2 {
+                target = <&i2s_8ch_2>;
+
+                __overlay__ {
+                        status = "disabled";
+                };
+        };
+
+        fragment@3 {
+                target-path = "/";
+
+                __overlay__ {
+                    sound {
+                        compatible = "rockchip,multicodecs-card";
+                        rockchip,card-name = "GDis_DAC_out";
+                        rockchip,mclk-fs = <256>;
+                        rockchip,bitclock-master = <&i2s_8ch_0>;
+                        rockchip,frame-master = <&i2s_8ch_0>;
+                        rockchip,cpu = <&i2s_8ch_0>;
+                        rockchip,codec = <&i2s0>;
+                        };
+                };
+        };
+};

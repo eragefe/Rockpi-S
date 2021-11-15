@@ -5,7 +5,7 @@ echo out > /sys/class/gpio/gpio64/direction
 
 while :
 do
-   if  cat /proc/asound/card0/pcm0p/sub0/status |grep closed >/dev/nul
+   if  cat /proc/asound/card1/pcm0p/sub0/status |grep closed >/dev/nul
    then
         echo default-on > /sys/class/leds/rockpis:green:power/trigger
         echo 0 > /sys/class/gpio/gpio64/value

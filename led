@@ -8,9 +8,9 @@ do
    if  cat /proc/asound/card0/pcm0p/sub0/status |grep closed >/dev/nul
    then
         echo default-on > /sys/class/leds/rockpis:green:power/trigger
-        echo 1 > /sys/class/gpio/gpio64/value
+        echo 0 > /sys/class/gpio/gpio64/value
    else
         echo none > /sys/class/leds/rockpis:green:power/trigger
-        echo 0 > /sys/class/gpio/gpio64/value
+        echo 1 > /sys/class/gpio/gpio64/value
    fi
 done

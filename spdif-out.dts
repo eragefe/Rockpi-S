@@ -24,7 +24,7 @@
 			};
 	};
 	
-        fragment@3 {
+        fragment@2 {
                 target = <&i2s_8ch_0>;
 
                 __overlay__ {
@@ -32,7 +32,7 @@
                 };
         };
 	
-        fragment@2 {
+        fragment@3 {
                 target = <&i2s_8ch_2>;
 
                 __overlay__ {
@@ -40,7 +40,7 @@
                 };
         };
 
-	fragment@2 {
+	fragment@4 {
 		target-path = "/";
 		
 		__overlay__ {

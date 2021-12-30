@@ -46,7 +46,7 @@
 		__overlay__ {
 			acodec-sound {
 				compatible = "rockchip,multicodecs-card";
-				rockchip,card-name = "My_card";
+				rockchip,card-name = "SPDIF_out";
 				rockchip,mclk-fs = <256>;
 				rockchip,cpu = <&spdif_tx>;
 				rockchip,codec = <&acodec>;

@@ -1,0 +1,47 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target = <&sound>;
+		__overlay__ {
+			compatible = "simple-audio-card";
+			simple-audio-card,name = "G-Dis-DAC";
+			simple-audio-card,format = "i2s";
+			status="okay";
+
+			cpu_dai: simple-audio-card,cpu {
+				sound-dai = <&i2s>;
+			};
+
+			codec_dai: simple-audio-card,codec {
+				sound-dai = <&gdiscodec>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&i2s>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&i2c1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "okay";
+
+		gdiscodec: pcm5122@4c {
+				#sound-dai-cells = <0>;
+				compatible = "ti,pcm5122";
+				reg = <0x4d>;
+				status = "okay";
+			};
+		};
+	};
+};

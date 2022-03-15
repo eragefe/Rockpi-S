@@ -37,5 +37,5 @@
 };
 /* 
 Compile with:
-   dtc -@ -H epapr -O dtb -o gdiscodec.dtbo -Wno-unit_address_vs_reg gdiscodec.dts
+   dtc -@ -H epapr -O dtb -o i2s-out.dtbo -Wno-unit_address_vs_reg i2s-out.dts
 */

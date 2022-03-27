@@ -1,1 +1,18 @@
+#!/bin/bash
 
+echo 77 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio77/direction
+
+echo none > /sys/class/leds/rockpis:blue:user/trigger
+
+while :
+do
+   if  mpc | grep playing >/dev/nul
+   then
+        echo none > /sys/class/leds/rockpis:green:power/trigger
+        echo 0 > /sys/class/gpio/gpio77/value
+   else
+        echo default-on > /sys/class/leds/rockpis:green:power/trigger
+        echo 1 > /sys/class/gpio/gpio77/value
+   fi
+done

@@ -4,17 +4,21 @@
 / {
         compatible = "radxa,rockpis", "rockchip,rk3308";
 
-        fragment@0 {
-                target-path = "/";
+       	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "okay";
 
-                __overlay__ {
-                        i2s0: i2s0 {
-                        #sound-dai-cells = <0>;
-                        compatible = "rockchip,dummy-codec";
-                        status = "okay";
-                        };
-                };
-        };
+		gdiscodec: es9038q2m@48 {
+				#sound-dai-cells = <0>;
+				compatible = "ti,es9038-codec";
+				reg = <0x48>;
+				status = "okay";
+			};
+		};
+	};
 
         fragment@1 {
                 target = <&i2s_8ch_0>;
@@ -43,7 +47,7 @@
                         rockchip,bitclock-master = <&i2s_8ch_0>;
                         rockchip,frame-master = <&i2s_8ch_0>;
                         rockchip,cpu = <&i2s_8ch_0>;
-                        rockchip,codec = <&i2s0>;
+                        rockchip,codec = <&gdiscodec>;
                         };
                 };
         };

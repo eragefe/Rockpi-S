@@ -15,7 +15,7 @@
 	};
 
 	fragment@2 {
-		target = <&i2s>;
+		target = <&i2s_8ch_0>;
 		frag1:__overlay__ {
 			status = "okay";
 		};

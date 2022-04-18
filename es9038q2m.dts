@@ -13,7 +13,7 @@
 
 		gdiscodec: es9038q2m@48 {
 				#sound-dai-cells = <0>;
-				compatible = "ti,es9038-codec";
+				compatible = "ess,es9038-codec";
 				reg = <0x48>;
 				status = "okay";
 			};

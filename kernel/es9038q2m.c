@@ -26,7 +26,7 @@
 #include <sound/pcm.h>
 #include <sound/pcm_params.h>
 #include <linux/gpio/consumer.h>
-#include "hifibunny3-codec.h"
+#include "es9038q2m_codec.h"
 
 struct gpio_desc *rst_gpio;
 struct gpio_desc *pwd_gpio;
@@ -171,7 +171,7 @@ static int snd_rpi_hifibunny3_q2m_remove(struct platform_device *pdev)
 }
 
 static const struct of_device_id snd_rpi_hifibunny3_q2m_of_match[] = {
-	{ .compatible = "tuxiong,hifibunny3-q2m", },
+	{ .compatible = "ess,es9038-q2m", },
 	{}
 };
 MODULE_DEVICE_TABLE(of, snd_rpi_hifibunny3_q2m_of_match);

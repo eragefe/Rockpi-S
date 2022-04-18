@@ -8,10 +8,8 @@
 	fragment@1 {
 		target = <&sound>;
 		frag0: __overlay__ {
-			compatible = "tuxiong,hifibunny3-q2m";
+			compatible = "ess,es9038-q2m";
 			i2s-controller = <&i2s>;
-			rst-gpios = <&gpio 23 0>;
-			pwd-gpios = <&gpio 24 0>;
 			status = "okay";
 		};
 	};
@@ -31,7 +29,7 @@
 			status = "okay";
 			hifibunny:hifibunny3-codec@48 {
 				#sound-dai-cells = <0>;
-				compatible = "tuxiong,hifibunny3-codec";
+				compatible = "ess,es9038-codec";
 				reg = <0x48>;
 				status = "okay";
 			};

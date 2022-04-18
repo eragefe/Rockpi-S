@@ -9,7 +9,7 @@
 		target = <&sound>;
 		frag0: __overlay__ {
 			compatible = "ess,es9038-q2m";
-			i2s-controller = <&i2s>;
+			i2s-controller = <&i2s_8ch_0>;
 			status = "okay";
 		};
 	};

@@ -503,7 +503,7 @@ static const struct i2c_device_id hifibunny3_codec_i2c_id[] = {
 MODULE_DEVICE_TABLE(i2c, hifibunny3_codec_i2c_id);
 
 static const struct of_device_id hifibunny3_codec_of_match[] = {
-	{ .compatible = "tuxiong,hifibunny3-codec", },
+	{ .compatible = "ess,es9038-codec", },
 	{ }
 };
 MODULE_DEVICE_TABLE(of, hifibunny3_codec_of_match);

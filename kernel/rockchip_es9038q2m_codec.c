@@ -29,12 +29,12 @@
 #include <asm/div64.h>
 
 static int es9038_codec_dac_mute(struct snd_soc_dai *dai, int mute);
-/* hifibunny Q2M Codec Private Data */
+/* es9038 Q2M Codec Private Data */
 struct es9038_codec_priv {
 	struct regmap *regmap;
 	unsigned int fmt;
 };
-/* hifibunny Q2M Default Register Value */
+/* es9038 Q2M Default Register Value */
 static const struct reg_default es9038_codec_reg_defaults[] = {
 	{ES9038Q2M_INPUT_CONFIG,0xC0},
 	{ES9038Q2M_DEEMP_DOP,0x48},

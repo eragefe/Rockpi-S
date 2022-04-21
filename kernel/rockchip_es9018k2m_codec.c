@@ -92,8 +92,9 @@ static bool es9018k2m_volatile(struct device *dev, unsigned int reg)
 
 
 /* Volume Scale */
-static const DECLARE_TLV_DB_SCALE(volume_tlv, -12750, 50, 1);/* Filter Type */
+static const DECLARE_TLV_DB_SCALE(volume_tlv, -12750, 50, 1);
 
+/* Filter Type */
 static const char * const fir_filter_type_texts[] = {
 	"Fast Roll-off Filter",
 	"Slow Roll-off Filter",

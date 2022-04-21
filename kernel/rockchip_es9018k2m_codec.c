@@ -101,10 +101,10 @@ static const char * const fir_filter_type_texts[] = {
 	"Minimum Phase Filter",
 };
 static const unsigned int fir_filter_type_values[] = {
-	0,
-	1,
-	2,
-	3,
+	4,
+	5,
+	6,
+	7,
 };
 static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_type_enum,
 				  ES9018K2M_GENERAL_SET, 5, 0x07,

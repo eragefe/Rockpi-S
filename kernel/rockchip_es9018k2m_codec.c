@@ -23,7 +23,7 @@
 #include <sound/pcm_params.h>
 #include <sound/tlv.h>
 
-#include "es9018k2m.h"
+#include "rockchip_es9018k2m_codec.h"
 
 
 /* SABRE9018Q2C Codec Private Data */

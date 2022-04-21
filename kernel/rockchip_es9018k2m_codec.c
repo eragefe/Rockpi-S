@@ -96,9 +96,9 @@ static const DECLARE_TLV_DB_SCALE(volume_tlv, -12750, 50, 1);
 
 /* Filter Type */
 static const char * const fir_filter_type_texts[] = {
-	"Fast Roll-off Filter",
-	"Slow Roll-off Filter",
-	"Minimum Phase Filter",
+	"Fast",
+	"Slow",
+	"Minimum Phase",
 };
 static const unsigned int fir_filter_type_values[] = {
 	4,
@@ -110,12 +110,27 @@ static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_type_enum,
 				  ES9018K2M_GENERAL_SET, 5, 0x07,
 				  fir_filter_type_texts,
 				  fir_filter_type_values);
+/* Filter Disable */
+static const char * const fir_filter_disable_texts[] = {
+        "FIR",
+        "NOS",
+};
+static const unsigned int fir_filter_disable_values[] = {
+        0,
+        1,
+        2,
+};
+static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_disable_enum,
+                                  ES9018K2M_INPUT_SELECT, 0, 0x07,
+                                  fir_filter_disable_texts,
+                                  fir_filter_disable_values);
 
 /* Control */
 static const struct snd_kcontrol_new es9018k2m_controls[] = {
 SOC_DOUBLE_R_TLV("Master Playback Volume", ES9018K2M_VOLUME1, ES9018K2M_VOLUME2,
-		 0, 255, 0, volume_tlv),
-SOC_ENUM("DSP Program Route", es9038_fir_filter_type_enum),
+                 0, 255, 0, volume_tlv),
+SOC_ENUM("Filter select", es9038_fir_filter_type_enum),
+SOC_ENUM("NOS mode select", es9038_fir_filter_disable_enum),
 };
 
 

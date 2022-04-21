@@ -107,7 +107,7 @@ static const unsigned int fir_filter_type_values[] = {
 	3,
 };
 static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_type_enum,
-				  ES9038Q2M_FILTER, 5, 0x07,
+				  ES9018K2M_GENERAL_SET, 5, 0x07,
 				  fir_filter_type_texts,
 				  fir_filter_type_values);
 

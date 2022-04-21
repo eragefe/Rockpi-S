@@ -102,10 +102,7 @@ static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_type_enum,
 static const struct snd_kcontrol_new es9038_codec_controls[] = {
 SOC_DOUBLE_R_TLV("Master Playback Volume", ES9038Q2M_VOLUME1, ES9038Q2M_VOLUME2,
 		 0, 255, 1, volume_tlv),
-SOC_DOUBLE_R_TLV("Digital Playback Volume", ES9038Q2M_VOLUME1, ES9038Q2M_VOLUME2,
-		 0, 255, 1, volume_tlv),
 SOC_ENUM("DSP Program Route", es9038_fir_filter_type_enum),
-SOC_SINGLE("DoP Playback Switch", ES9038Q2M_DEEMP_DOP, 3, 1, 0)
 };
 
 

@@ -22,6 +22,10 @@
 #include <sound/soc.h>
 #include <sound/pcm_params.h>
 #include <sound/tlv.h>
+#include <linux/timer.h>
+#include <linux/gpio/consumer.h>
+#include <linux/delay.h>
+#include <asm/div64.h>
 
 #include "rockchip_es9018k2m_codec.h"
 

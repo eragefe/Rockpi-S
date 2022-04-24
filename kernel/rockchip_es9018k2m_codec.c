@@ -209,7 +209,7 @@ static int es9018k2m_dai_startup(
 		return es9018k2m_dai_startup_slave(substream, dai);
 
 	default:
-		return (-EINVAL);
+		return (EINVAL);
 	}
 }
 

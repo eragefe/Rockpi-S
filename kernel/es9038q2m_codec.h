@@ -1,5 +1,5 @@
 /*
- * Driver for hifibunny3 Q2M
+ * Driver for ES9038 Q2M
  *
  * Author: Satoru Kawase
  *      Copyright 2018
@@ -14,8 +14,8 @@
  * General Public License for more details.
  */
 
-#ifndef _SND_SOC_hifibunny3
-#define _SND_SOC_hifibunny3
+#ifndef _SND_SOC_ES9038
+#define _SND_SOC_ES9038
 /* ES9038Q2M register space */
 
 #define ES9038Q2M_SYSTEM_SETTING    			0x00

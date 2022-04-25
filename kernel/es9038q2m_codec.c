@@ -22,7 +22,7 @@
 #include <sound/soc.h>
 #include <sound/pcm_params.h>
 #include <sound/tlv.h>
-#include "rockchip_es9038q2m_codec.h"
+#include "es9038q2m_codec.h"
 #include <linux/timer.h>
 #include <linux/gpio/consumer.h>
 #include <linux/delay.h>

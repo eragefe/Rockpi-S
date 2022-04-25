@@ -42,10 +42,8 @@
                 __overlay__ {
                     sound {
                         compatible = "rockchip,multicodecs-card";
-                        rockchip,card-name = "GDis_DAC_out";
+                        rockchip,card-name = "GDis_DAC";
                         rockchip,mclk-fs = <256>;
-                        rockchip,bitclock-master = <&i2s_8ch_0>;
-                        rockchip,frame-master = <&i2s_8ch_0>;
                         rockchip,cpu = <&i2s_8ch_0>;
                         rockchip,codec = <&gdiscodec>;
                         };

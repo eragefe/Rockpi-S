@@ -286,15 +286,6 @@ static const struct regmap_config es9018k2m_regmap = {
 
 bool es9018k2m_check_chip_id(struct snd_soc_codec *codec)
 {
-	/*
-	unsigned int value;
-
-	value = snd_soc_read(codec, SABRE9018Q2C_REG_64);
-
-	if (((value & 0x1C) >> 2) != 0) {
-		return false;
-	}
-	*/
 	return true;
 }
 EXPORT_SYMBOL_GPL(es9018k2m_check_chip_id);

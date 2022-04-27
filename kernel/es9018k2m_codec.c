@@ -1,8 +1,8 @@
 /*
  * Driver for the ESS SABRE9018Q2C
  *
- * Author: Satoru Kawase, Takahito Nishiara
- *      Copyright 2016
+ * Author: Georgios Fevgidis based on Satoru Kawase, Takahito Nishiara original driver
+ *      Copyright 2022
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
 #include <linux/delay.h>
 #include <asm/div64.h>
 
-#include "es9018k2m_codec.h"
+#include "rockchip_es9018k2m_codec.h"
 
 
 /* SABRE9018Q2C Codec Private Data */
@@ -119,18 +119,31 @@ static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_type_enum,
 static const char * const spdif_in_texts[] = {
         "SPDIF 1",
         "SPDIF 2",
-        "STREAMER",
 };
 static const unsigned int spdif_in_values[] = {
         4,
         3,
-        0,
         7,
 };
 static SOC_VALUE_ENUM_SINGLE_DECL(es9018_spdif_in_enum,
 				  ES9018K2M_CHANNEL_MAP, 4, 0x07,
 				  spdif_in_texts,
 				  spdif_in_values);
+
+/* Input select*/
+static const char * const spdif_i2s_texts[] = {
+        "S-PDIF",
+        "I2S",
+};
+static const unsigned int spdif_i2s_values[] = {
+        1,
+        0,
+        7,
+};
+static SOC_VALUE_ENUM_SINGLE_DECL(es9018_spdif_i2s_enum,
+                                  ES9018K2M_INPUT_CONFIG, 0, 0x07,
+                                  spdif_i2s_texts,
+                                  spdif_i2s_values);
 
 /* Filter Disable */
 static const char * const fir_filter_disable_texts[] = {
@@ -149,10 +162,11 @@ static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_disable_enum,
 
 /* Control */
 static const struct snd_kcontrol_new es9018k2m_controls[] = {
-SOC_ENUM("Input select", es9018_spdif_in_enum),
 SOC_DOUBLE_R_TLV("Master Playback Volume", ES9018K2M_VOLUME1, ES9018K2M_VOLUME2,
                  0, 255, 1, volume_tlv),
 
+SOC_ENUM("SPDIF select", es9018_spdif_in_enum),
+SOC_ENUM("Input select", es9018_spdif_i2s_enum),
 SOC_ENUM("Filter select", es9038_fir_filter_type_enum),
 SOC_ENUM("NOS mode select", es9038_fir_filter_disable_enum),
 };
@@ -298,8 +312,9 @@ static int es9018k2m_probe(struct device *dev, struct regmap *regmap)
 	}
 
 	es9018k2m->regmap = regmap;
-	regmap_write(regmap, ES9018K2M_GPIO_CONFIG,0x99);
-	msleep(10);
+	regmap_write(regmap, ES9018K2M_GPIO_CONFIG,0x88);
+        regmap_write(regmap, ES9018K2M_INPUT_CONFIG,0xc0);
+	msleep(2);
 
 	dev_set_drvdata(dev, es9018k2m);
 
@@ -366,5 +381,5 @@ module_i2c_driver(es9018k2m_i2c_driver);
 
 
 MODULE_DESCRIPTION("ASoC SABRE9018Q2C codec driver");
-MODULE_AUTHOR("Satoru Kawase <satoru.kawase@gmail.com>");
+MODULE_AUTHOR("Georgios Fevgidis <georgiosfevgidis@gmail.com>");
 MODULE_LICENSE("GPL");

@@ -1,7 +1,7 @@
 /*
  * Driver for the ESS SABRE9018Q2C
  *
- * Author: Georgios Fevgidis based on Satoru Kawase, Takahito Nishiara original driver
+ * Author: Georgios Fevgidis based on Satoru Kawase, Takahito Nishiara original codec
  *      Copyright 2022
  *
  * This program is free software; you can redistribute it and/or

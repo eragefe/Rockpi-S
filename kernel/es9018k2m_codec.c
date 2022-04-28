@@ -1,5 +1,5 @@
 /*
- * Driver for the ESS SABRE9018Q2C
+ * Driver for the ESS ES9018K2M
  *
  * Author: Georgios Fevgidis based on Satoru Kawase, Takahito Nishiara original codec
  *      Copyright 2022
@@ -371,6 +371,6 @@ static struct i2c_driver es9018k2m_i2c_driver = {
 module_i2c_driver(es9018k2m_i2c_driver);
 
 
-MODULE_DESCRIPTION("ASoC SABRE9018K2M codec driver");
+MODULE_DESCRIPTION("ASoC ES9018K2M codec driver");
 MODULE_AUTHOR("Georgios Fevgidis <georgiosfevgidis@gmail.com>");
 MODULE_LICENSE("GPL");

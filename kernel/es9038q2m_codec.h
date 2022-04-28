@@ -1,5 +1,5 @@
 /*
- * Driver for ES9038 Q2M
+ * Driver for hifibunny3 Q2M
  *
  * Author: Satoru Kawase
  *      Copyright 2018
@@ -14,8 +14,8 @@
  * General Public License for more details.
  */
 
-#ifndef _SND_SOC_ES9038
-#define _SND_SOC_ES9038
+#ifndef _SND_SOC_ES9038Q2M
+#define _SND_SOC_ES9038Q2M
 /* ES9038Q2M register space */
 
 #define ES9038Q2M_SYSTEM_SETTING    			0x00
@@ -30,7 +30,7 @@
 #define ES9038Q2M_DPLL   				0x0C
 #define ES9038Q2M_THD_COMPENSATION   			0x0D
 #define ES9038Q2M_SOFT_START	   			0x0E
-#define ES9038Q2M_VOLUME1                                 0x0F
+#define ES9038Q2M_VOLUME1	   			0x0F
 #define ES9038Q2M_VOLUME2	   			0x10
 #define ES9038Q2M_MASTERTRIM0	   			0x11
 #define ES9038Q2M_MASTERTRIM1	   			0x12
@@ -72,7 +72,7 @@
 #define ES9038Q2M_ADC_FBQ_SCALE2_0			0x37
 #define ES9038Q2M_ADC_FBQ_SCALE2_1			0x38
 
-#define ES9038Q2M_Chip_ID             0x40
+#define ES9038Q2M_Chip_ID				0x40
 
 #define ES9038Q2M_SYSCLK_MCLK_HZ			49152000
 

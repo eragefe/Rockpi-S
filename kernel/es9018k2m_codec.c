@@ -371,6 +371,6 @@ static struct i2c_driver es9018k2m_i2c_driver = {
 module_i2c_driver(es9018k2m_i2c_driver);
 
 
-MODULE_DESCRIPTION("ASoC SABRE9018Q2C codec driver");
+MODULE_DESCRIPTION("ASoC SABRE9018K2M codec driver");
 MODULE_AUTHOR("Georgios Fevgidis <georgiosfevgidis@gmail.com>");
 MODULE_LICENSE("GPL");

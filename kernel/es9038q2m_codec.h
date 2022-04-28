@@ -30,7 +30,7 @@
 #define ES9038Q2M_DPLL   				0x0C
 #define ES9038Q2M_THD_COMPENSATION   			0x0D
 #define ES9038Q2M_SOFT_START	   			0x0E
-#define ES9038Q2M_VOLUME1         0x0F
+#define ES9038Q2M_VOLUME1                                     0x0F
 #define ES9038Q2M_VOLUME2	   			0x10
 #define ES9038Q2M_MASTERTRIM0	   			0x11
 #define ES9038Q2M_MASTERTRIM1	   			0x12

@@ -165,9 +165,9 @@ static const struct snd_kcontrol_new es9018k2m_controls[] = {
 SOC_DOUBLE_R_TLV("Master Playback Volume", ES9018K2M_VOLUME1, ES9018K2M_VOLUME2,
                  0, 255, 1, volume_tlv),
 
-SOC_ENUM("SPDIF select", es9018_spdif_in_enum),
+SOC_ENUM("SPDIF on gpio select", es9018_spdif_in_enum),
 SOC_ENUM("Input select", es9018_spdif_i2s_enum),
-SOC_ENUM("Filter select", es9038_fir_filter_type_enum),
+SOC_ENUM("FIR Filter select", es9038_fir_filter_type_enum),
 SOC_ENUM("NOS mode select", es9038_fir_filter_disable_enum),
 };
 

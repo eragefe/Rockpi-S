@@ -452,7 +452,6 @@ static int es9038_codec_probe(struct device *dev, struct regmap *regmap)
 	regmap_write(regmap, ES9038Q2M_INPUT_CONFIG,0xC0);
 	regmap_write(regmap, ES9038Q2M_DEEMP_DOP,0x48);
 	regmap_write(regmap, ES9038Q2M_GPIO_CONFIG,0xFF);
-	regmap_write(regmap, ES9038Q2M_MASTER_MODE,0xA0);
 	regmap_write(regmap, ES9038Q2M_SOFT_START,0x0C);
 	regmap_write(regmap, ES9038Q2M_GENERAL_CONFIG_0,0x54);
 	regmap_write(regmap, ES9038Q2M_GENERAL_CONFIG_1,0x40);

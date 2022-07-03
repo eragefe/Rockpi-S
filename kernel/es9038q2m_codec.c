@@ -448,6 +448,7 @@ static int es9038_codec_probe(struct device *dev, struct regmap *regmap)
 	}
 	printk("Registering es9038-codec \n");
 	es9038_codec->regmap = regmap;
+	regmap_write(regmap, ES9038Q2M_FILTER,0x08);
 	regmap_write(regmap, ES9038Q2M_INPUT_CONFIG,0xC0);
 	regmap_write(regmap, ES9038Q2M_DEEMP_DOP,0x48);
 	regmap_write(regmap, ES9038Q2M_GPIO_CONFIG,0xFF);

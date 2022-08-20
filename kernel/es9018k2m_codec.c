@@ -110,7 +110,7 @@ static const unsigned int fir_filter_type_values[] = {
 	6,
 	7,
 };
-static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_type_enum,
+static SOC_VALUE_ENUM_SINGLE_DECL(es9018_fir_filter_type_enum,
                                   ES9018K2M_GENERAL_SET, 5, 0x07,
                                   fir_filter_type_texts,
                                   fir_filter_type_values);
@@ -155,7 +155,7 @@ static const unsigned int fir_filter_disable_values[] = {
         1,
         2,
 };
-static SOC_VALUE_ENUM_SINGLE_DECL(es9038_fir_filter_disable_enum,
+static SOC_VALUE_ENUM_SINGLE_DECL(es9018_fir_filter_disable_enum,
                                   ES9018K2M_INPUT_SELECT, 0, 0x07,
                                   fir_filter_disable_texts,
                                   fir_filter_disable_values);
@@ -167,8 +167,8 @@ SOC_DOUBLE_R_TLV("Master Playback Volume", ES9018K2M_VOLUME1, ES9018K2M_VOLUME2,
 
 SOC_ENUM("SPDIF on gpio select", es9018_spdif_in_enum),
 SOC_ENUM("Input select", es9018_spdif_i2s_enum),
-SOC_ENUM("FIR Filter select", es9038_fir_filter_type_enum),
-SOC_ENUM("NOS mode select", es9038_fir_filter_disable_enum),
+SOC_ENUM("FIR Filter select", es9018_fir_filter_type_enum),
+SOC_ENUM("NOS mode select", es9018_fir_filter_disable_enum),
 };
 
 

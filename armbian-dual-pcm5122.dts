@@ -7,22 +7,22 @@
 	fragment@0 {
 		target = <&i2c1>;
 		__overlay__ {
-		#address-cells = <1>;
-			#size-cells = <0>;
-			status = "okay";
+			#address-cells = <1>;
+				#size-cells = <0>;
+				status = "okay";
 
-		codec1: pcm5122@4d {
-			#sound-dai-cells = <0>;
-			compatible = "ti,pcm5122";
-			reg = <0x4d>;
-			status = "okay";
+			codec1: pcm5122@4d {
+				#sound-dai-cells = <0>;
+				compatible = "ti,pcm5122";
+				reg = <0x4d>;
+				status = "okay";
 			};
 
-                codec2: pcm5122@4c {
-			#sound-dai-cells = <0>;
-			compatible = "ti,pcm5122";
-			reg = <0x4c>;
-			status = "okay";
+                	codec2: pcm5122@4c {
+				#sound-dai-cells = <0>;
+				compatible = "ti,pcm5122";
+				reg = <0x4c>;
+				status = "okay";
 			};
 		};
 	};

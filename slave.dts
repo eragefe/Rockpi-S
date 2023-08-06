@@ -8,7 +8,7 @@
                 target-path = "/";
 
                 __overlay__ {
-                        i2s0: i2s0 {
+                        dummy: i2s0 {
                         #sound-dai-cells = <0>;
                         compatible = "rockchip,dummy-codec";
                         status = "okay";
@@ -43,7 +43,7 @@
                         rockchip,bitclock-master = <&i2s0>;
                         rockchip,frame-master = <&i2s0>;
                         rockchip,cpu = <&i2s_8ch_0>;
-                        rockchip,codec = <&i2s0>;
+                        rockchip,codec = <&dummy>;
                         };
                 };
         };

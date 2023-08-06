@@ -17,7 +17,7 @@
 			};
 
 			codec_dai: simple-audio-card,codec {
-				sound-dai = <&gdiscodec>;
+				sound-dai = <&codec1 &codec2>;
 			};
 		};
 	};
@@ -36,10 +36,17 @@
 			#size-cells = <0>;
 			status = "okay";
 
-		gdiscodec: pcm5122@4c {
+			codec1: pcm5122@4d {
 				#sound-dai-cells = <0>;
 				compatible = "ti,pcm5122";
 				reg = <0x4d>;
+				status = "okay";
+			};
+
+                	codec2: pcm5122@4c {
+				#sound-dai-cells = <0>;
+				compatible = "ti,pcm5122";
+				reg = <0x4c>;
 				status = "okay";
 			};
 		};

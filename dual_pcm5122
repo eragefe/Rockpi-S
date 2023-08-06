@@ -2,34 +2,9 @@
 /plugin/;
 
 / {
-	compatible = "brcm,bcm2835";
+        compatible = "radxa,rockpis", "rockchip,rk3308";
 
 	fragment@0 {
-		target = <&sound>;
-		__overlay__ {
-			compatible = "simple-audio-card";
-			simple-audio-card,name = "G-Dis-DAC";
-			simple-audio-card,format = "i2s";
-			status="okay";
-
-			cpu_dai: simple-audio-card,cpu {
-				sound-dai = <&i2s>;
-			};
-
-			codec_dai: simple-audio-card,codec {
-				sound-dai = <&codec1 &codec2>;
-			};
-		};
-	};
-
-	fragment@1 {
-		target = <&i2s>;
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@2 {
 		target = <&i2c1>;
 		__overlay__ {
 			#address-cells = <1>;
@@ -51,4 +26,34 @@
 			};
 		};
 	};
+
+        fragment@1 {
+                target = <&i2s_8ch_0>;
+
+                __overlay__ {
+                        status = "okay";
+                };
+        };
+
+        fragment@2 {
+                target = <&i2s_8ch_2>;
+
+                __overlay__ {
+                        status = "disabled";
+                };
+        };
+
+        fragment@3 {
+                target-path = "/";
+
+                __overlay__ {
+                    sound {
+                        compatible = "rockchip,multicodecs-card";
+                        rockchip,card-name = "GDis_DAC";
+                        rockchip,mclk-fs = <256>;
+                        rockchip,cpu = <&i2s_8ch_0>;
+                        rockchip,codec = <&codec1 &codec2>;
+                        };
+                };
+        };
 };

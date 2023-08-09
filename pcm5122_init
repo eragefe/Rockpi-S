@@ -1,3 +1,5 @@
+#!/bin/bash
+
 i2cset -y 1 0x4c 2 0x10
 i2cset -y 1 0x4d 2 0x10
 

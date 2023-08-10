@@ -12,7 +12,7 @@
                         rockchip,bclk-fs = <64>;
                         status = "okay";
                         };
-               };
+                };
 
         fragment@1 {
                 target = <&i2s_8ch_2>;
@@ -20,7 +20,7 @@
                         #sound-dai-cells = <0>;
                         status = "disabled";
                         };
-               };
+                };
 
         fragment@2 {
                 target-path = "/";
@@ -32,6 +32,6 @@
                                 simple-audio-card,name = "DAC";
                                 status = "okay";
                                 };
-                     };
-           };
- };
+                        };
+                };
+       };

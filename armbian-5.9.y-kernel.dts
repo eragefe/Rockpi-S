@@ -7,7 +7,6 @@
 
         fragment@0 {
                 target = <&i2s_8ch_0>;
-
                 __overlay__ {
                         #sound-dai-cells = <0>;
                         rockchip,bclk-fs = <64>;
@@ -17,7 +16,6 @@
 
         fragment@1 {
                 target = <&i2s_8ch_2>;
-
                 __overlay__ {
                         #sound-dai-cells = <0>;
                         status = "disabled";
@@ -26,7 +24,6 @@
 
         fragment@2 {
                 target-path = "/";
-
                 __overlay__ {
                         pcm5102a {
                                 status = "okay";

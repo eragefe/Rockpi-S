@@ -44,6 +44,9 @@
         fragment@3 {
                 target-path = "/";
                 __overlay__ {
+                        pcm5102a {
+                                status = "disabled";
+                                };
 
                         sound {
                                 simple-audio-card,name = "DAC";

@@ -47,19 +47,10 @@
                         pcm5102a {
                                 status = "disabled";
                                 };
-
                         sound {
                                 simple-audio-card,name = "DAC";
                                 status = "okay";
-
-                        cpu_dai: simple-audio-card,cpu {
-                        sound-dai = <&i2s_8ch_0>;
-                        };
-                                
-                        codec_dai: simple-audio-card,codec {
-                        sound-dai = <&codec1 &codec2>;
-                              };
+                                };
                         };
                 };
-        };
 };

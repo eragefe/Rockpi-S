@@ -29,7 +29,6 @@
 
         fragment@1 {
                 target = <&i2s_8ch_0>;
-
                 __overlay__ {
                         status = "okay";
                 };
@@ -37,7 +36,6 @@
 
         fragment@2 {
                 target = <&i2s_8ch_2>;
-
                 __overlay__ {
                         status = "disabled";
                 };
@@ -45,17 +43,11 @@
 
         fragment@3 {
                 target-path = "/";
-
                 __overlay__ {
 
-		    generic_pcm5122: generic-pcm5122 {
-                        compatible = "simple-audio-card";
-                        simple-audio-card,name = "GDis_DAC";
-                        simple-audio-card,format = "i2s";
-                        simple-audio-card,bitclock-master = <&cpu_dai>;
-                        simple-audio-card,frame-master = <&cpu_dai>;
-                        simple-audio-card,mclk-fs = <256>;
-                        status = "okay";
+                        sound {
+                                simple-audio-card,name = "DAC";
+                                status = "okay";
 
                         cpu_dai: simple-audio-card,cpu {
                         sound-dai = <&i2s_8ch_0>;

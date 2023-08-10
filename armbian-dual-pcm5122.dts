@@ -18,7 +18,7 @@
 				status = "okay";
 			};
 
-                	codec2: pcm5122@4c {
+			codec2: pcm5122@4c {
 				#sound-dai-cells = <0>;
 				compatible = "ti,pcm5122";
 				reg = <0x4c>;
@@ -30,16 +30,19 @@
         fragment@1 {
                 target = <&i2s_8ch_0>;
                 __overlay__ {
+                        #sound-dai-cells = <0>;
+                        rockchip,bclk-fs = <64>;
                         status = "okay";
+                        };
                 };
-        };
 
         fragment@2 {
                 target = <&i2s_8ch_2>;
                 __overlay__ {
+                        #sound-dai-cells = <0>;
                         status = "disabled";
+                        };
                 };
-        };
 
         fragment@3 {
                 target-path = "/";
@@ -47,10 +50,27 @@
                         pcm5102a {
                                 status = "disabled";
                                 };
-                        sound {
-                                simple-audio-card,name = "DAC";
-                                status = "okay";
-                                };
+
+		        sound {
+
+			compatible = "simple-audio-card";
+			simple-audio-card,format = "i2s";
+			simple-audio-card,mclk-fs = <0x100>;
+			simple-audio-card,name = "dac";
+
+			simple-audio-card,dai-link@1 {
+                        format = "i2s";
+
+                        cpu {
+                                sound-dai = <&i2s_8ch_0>;
+                        };
+
+                        codec {
+                                sound-dai = <&codec1 &codec2>;
                         };
                 };
+        };
+                };
+       };
+};
 };

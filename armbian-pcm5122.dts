@@ -11,7 +11,7 @@
 			#size-cells = <0>;
 			status = "okay";
 
-			gdiscodec: pcm5122@4d {
+			codec: pcm5122@4d {
 				#sound-dai-cells = <0>;
 				compatible = "ti,pcm5122";
 				reg = <0x4d>;
@@ -41,12 +41,10 @@
 
                 __overlay__ {
 
-		    generic_pcm5122: generic-pcm5122 {
+		    pcm5122: pcm5122 {
                         compatible = "simple-audio-card";
                         simple-audio-card,name = "GDis_DAC";
                         simple-audio-card,format = "i2s";
-                        simple-audio-card,bitclock-master = <&cpu_dai>;
-                        simple-audio-card,frame-master = <&cpu_dai>;
                         simple-audio-card,mclk-fs = <256>;
                         status = "okay";
 
@@ -55,7 +53,7 @@
                         };
                                 
                         codec_dai: simple-audio-card,codec {
-                        sound-dai = <&gdiscodec>;
+                        sound-dai = <&codec>;
                               };
                         };
                 };

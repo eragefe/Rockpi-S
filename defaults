@@ -1,0 +1,8 @@
+echo 64 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio64/direction
+echo 0 > /sys/class/gpio/gpio64/value
+i2cset -y -f 1 0x4c 0 0
+i2cset -y -f 1 0x4c 62 0xff
+i2cset -y -f 1 0x4c 0 1
+i2cset -y -f 1 0x4c 2 0x11
+echo none > /sys/class/leds/rockpis:blue:user/trigger

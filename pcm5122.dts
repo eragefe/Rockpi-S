@@ -11,10 +11,10 @@
 			#size-cells = <0>;
 			status = "okay";
 
-		gdiscodec: pcm5122@4d {
+		gdiscodec: pcm5122@4c {
 				#sound-dai-cells = <0>;
 				compatible = "ti,pcm5122";
-				reg = <0x4d>;
+				reg = <0x4c>;
 				status = "okay";
 			};
 		};

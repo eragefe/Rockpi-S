@@ -1,0 +1,52 @@
+// Definitions for DAC
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "radxa,rockpis", "rockchip,rk3308";
+
+        fragment@0 {
+                target = <&spdif_tx>;
+                
+                __overlay__ {
+                        #sound-dai-cells = <0>;
+                        status = "okay";
+                        };
+               };
+               
+        fragment@1 {
+                target = <&i2s_8ch_2>;
+                
+                __overlay__ {
+                        #sound-dai-cells = <0>;
+                        status = "disabled";
+                        };
+               };
+
+        fragment@2 {
+                target-path = "/";
+                
+                __overlay__ {
+                        spdif_out: spdif-out {
+                                #sound-dai-cells = <0>;
+                                compatible = "linux,spdif-dit";
+                                status = "okay";
+                                };
+                        
+                        sound_spdif {
+                                simple-audio-card,name = "DAC";
+                                compatible = "simple-audio-card";
+                                simple-audio-card,mclk-fs = <256>;
+                                status = "okay";
+                                
+                                cpu_dai: simple-audio-card,cpu {
+                                sound-dai = <&spdif_tx>;
+                                };
+                                
+                                codec_dai: simple-audio-card,codec {
+                                sound-dai = <&spdif_out>;
+                                };
+                         };
+                };
+        };
+};

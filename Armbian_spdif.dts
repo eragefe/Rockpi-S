@@ -36,7 +36,6 @@
                         sound_spdif {
                                 simple-audio-card,name = "DAC";
                                 compatible = "simple-audio-card";
-                                simple-audio-card,mclk-fs = <256>;
                                 status = "okay";
                                 
                                 cpu_dai: simple-audio-card,cpu {

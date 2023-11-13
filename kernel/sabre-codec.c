@@ -1,5 +1,5 @@
 /*
- * Driver for I-Sabre Q2M
+ * Driver for I-Sabre ES9018K2M
  *
  * Author: Satoru Kawase
  * Modified by: Xiao Qingyong

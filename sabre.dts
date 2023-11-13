@@ -1,34 +1,47 @@
-// Definitions for I-Sabre ES9018K2M
+// Definitions for gdis
 /dts-v1/;
 /plugin/;
 
 / {
-	compatible = "brcm,bcm2835";
-
-	fragment@0 {
-		target = <&sound>;
-		frag0: __overlay__ {
-			compatible = "audiophonics,i-sabre-q2m";
-			i2s-controller = <&i2s_clk_producer>;
-			status = "okay";
-		};
-	};
+	compatible = "brcm,bcm2708";
 
 	fragment@1 {
-		target = <&i2s_clk_producer>;
+		target = <&sound>;
 		__overlay__ {
-			status = "okay";
+			compatible = "simple-audio-card";
+			simple-audio-card,name = "GDis-DAC";
+			simple-audio-card,format = "i2s";
+                        simple-audio-card,bitclock-master = <&cpu_dai>;
+                        simple-audio-card,frame-master = <&cpu_dai>;
+                        simple-audio-card,mclk-fs = <256>;
+			status="okay";
+
+			cpu_dai: simple-audio-card,cpu {
+                                sound-dai = <&i2s>;
+				dai-tdm-slot-num = <2>;
+				dai-tdm-slot-width = <32>;
+			};
+
+			codec_dai: simple-audio-card,codec {
+				sound-dai = <&gdis_codec>;
+			};
 		};
 	};
 
 	fragment@2 {
+		target = <&i2s>;
+		frag1:__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@3 {
 		target = <&i2c1>;
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;
 			status = "okay";
-
-			i-sabre-codec@48 {
+			gdis_codec:gdis-codec@48 {
 				#sound-dai-cells = <0>;
 				compatible = "ess,sabre-codec";
 				reg = <0x48>;

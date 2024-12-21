@@ -303,7 +303,7 @@ static int es9018k2m_probe(struct device *dev, struct regmap *regmap)
 	}
 
 	es9018k2m->regmap = regmap;
-	regmap_write(regmap, ES9018K2M_GPIO_CONFIG,0x88);
+	regmap_write(regmap, ES9018K2M_GPIO_CONFIG,0x18);
         regmap_write(regmap, ES9018K2M_INPUT_CONFIG,0xc0);
 	msleep(2);
 
